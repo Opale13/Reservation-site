@@ -1,38 +1,38 @@
 <?php
 
-$client = unserialize($_SESSION['client']);
+	$client = unserialize($_SESSION['client']);
 
-$client->itterateur();
+	$client->iterateur();
 
-if($client->getitterateur() > 0)
-{
-	if(isset($_POST['firstname']) && isset($_POST['lastname']) && isset($_POST['age']))
+	if($client->getiterateur() > 0)
 	{
-		$list = array();
-		$list['firstname'] = $_POST['firstname'];
-		$list['lastname'] = $_POST['lastname'];
-		$list['age'] = $_POST['age'];
-		$client->setlist($list);
-	}
+		if(isset($_POST['firstname']) && isset($_POST['lastname']) && isset($_POST['age']))
+		{
+			$list = array();
+			$list['firstname'] = $_POST['firstname'];
+			$list['lastname'] = $_POST['lastname'];
+			$list['age'] = $_POST['age'];
+			$client->setlist($list);
+		}
 
-	$_SESSION['client'] = serialize($client);
-	
-	include 'informations.php';
-}
-else if($client->getitterateur() == 0)
-{
-	if(isset($_POST['firstname']) && isset($_POST['lastname']) && isset($_POST['age']))
-	{
-		$list = array();
-		$list['firstname'] = $_POST['firstname'];
-		$list['lastname'] = $_POST['lastname'];
-		$list['age'] = $_POST['age'];
-		$client->setlist($list);
+		$_SESSION['client'] = serialize($client);
+		
+		include 'informations.php';
 	}
-	
-	$_SESSION['client'] = serialize($client);
-	
-	include 'validation.php';
-}
+	else if($client->getiterateur() == 0)
+	{
+		if(isset($_POST['firstname']) && isset($_POST['lastname']) && isset($_POST['age']))
+		{
+			$list = array();
+			$list['firstname'] = $_POST['firstname'];
+			$list['lastname'] = $_POST['lastname'];
+			$list['age'] = $_POST['age'];
+			$client->setlist($list);
+		}
+		
+		$_SESSION['client'] = serialize($client);
+		
+		include 'validation.php';
+	}
 
 ?>
