@@ -20,8 +20,16 @@
 		$client->setassurance($_POST['assurance']);
 	}
 
-	$_SESSION['client'] = serialize($client);
-
-	include 'informations.php';
+	
+	if(sizeof($client->getlist()) == $client->getnbrplace())
+	{
+		$_SESSION['client'] = serialize($client);
+		include 'controler_valid.php';
+	}
+	else
+	{
+		$_SESSION['client'] = serialize($client);
+		include 'informations.php';
+	}
 
 ?>

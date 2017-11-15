@@ -1,5 +1,6 @@
 <html>
 	<head>
+		<meta charset="UTF-8">
 		<title>Reservation</title>
 	</head>
 	
@@ -9,8 +10,6 @@
 		ensuite de 15 euros. <br/>
 		Le prix de l'assurance annulation est de 20 euros quel que
 		soit le nombre de voyageurs.</h2>
-
-		<?php var_dump($client->getdestination()); ?>
 
 		<table>
 			<form method='post' action='index.php'>
@@ -24,6 +23,7 @@
 							<option value='Bruxelles' <?php if ($destination == 'Bruxelles') echo 'selected="selected"';?>>Bruxelles</option>
 							<option value='Madrid' <?php if ($destination == 'Madrid') echo 'selected="selected"';?>>Madrid</option>
 							<option value='Paris' <?php if ($destination == 'Paris') echo 'selected="selected"';?>>Paris</option>
+							<option value='Amsterdam' <?php if ($destination == 'Amsterdam') echo 'selected="selected"';?>>Amsterdam</option>
 						</select>
 					</td>
 				</tr>
@@ -40,12 +40,12 @@
 					<td><input type='checkbox' name='assurance'/></td>
 				</tr>
 
-		</table>
-		
 				<tr>
 					<td><input type='submit' value='Etape suivante'/></td>	
 
 			</form>
+		</table>	
+				
 			
 					<form method='post' action='index.php'>
 						<td>										

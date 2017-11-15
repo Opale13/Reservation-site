@@ -9,7 +9,8 @@
 		else
 		{
 			$client = new client();
-		
+			$destination = $client->getdestination();
+
 			$_SESSION['client'] = serialize($client);
 
 			include 'reserv.php';

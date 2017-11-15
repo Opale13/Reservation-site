@@ -1,9 +1,21 @@
 <html>
 	<head>
+		<meta charset="UTF-8">
 		<title>Validation</title>
 	</head>
 
 	<body>
+
+		<?php 
+			if (isset($_SESSION['alertmajority']) && $_SESSION['alertmajority'] == 'ON')
+			{
+				echo '<h2>'.
+				 	 "Aucun majeur n'est présent".
+				 	 '</h2>';
+			}			
+		?>
+
+		<h1>Validation des reservations</h1>
 
 		<table>
 
@@ -76,5 +88,32 @@
 			?>
 
 		</table>
+
+		<table>
+			<tr>
+				<td>
+					<form method='post' action='index.php'>
+						<input type='hidden' name='page' value='controler_confirmation'/>
+						<input type='submit' value='confirmation'/>
+					</form>
+				</td>
+
+				<td>
+					<form method='post' action='index.php'>
+						<input type='hidden' name='page' value='controler_valid'/>
+						<input type='submit' value='Retour'/>
+					</form>
+				</td>
+
+				<td>
+					<form method='post' action='index.php'>
+						<input type='hidden' name='page' value='Annuler'/>
+					</form>
+				</td>
+
+			</tr>
+		</table>
+
+		
 	</body>
 </html>

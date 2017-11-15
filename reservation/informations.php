@@ -1,32 +1,36 @@
 <html>
 	<head>
+		<meta charset="UTF-8">
 		<title>Informations</title>
 	</head>
 	<body>
-		
-		<table>	
 
+		<table>	
 			<form method='post' action='index.php'>	
+				<input type='hidden' name='page' value='controler_valid'/>
+				<input type='hidden' name='order' value='next'/>
 				<tr>
 					<td>Firstname</td>
-					<td><input type='text' name='firstname'/></td>
+					<td><input type='text' name='firstname' value ='<?php if(isset($firstname))
+					echo $firstname;?>'/></td>
 					<td></td>
 				</tr>
 				
 				<tr>
 					<td>Lastname</td>
-					<td><input type='text' name='lastname'/></td>
+					<td><input type='text' name='lastname' value ='<?php if(isset($lastname))
+					echo $lastname;?>'</td>
 					<td></td>
 				</tr>
 				
 				<tr>
 					<td>Age</td>
-					<td><input type='text' name='age'/></td>
+					<td><input type='text' name='age' value ='<?php if(isset($age))
+					echo $age;?>'/></td>
 					<td></td>
 				</tr>		
 								
-				<tr>
-					<input type='hidden' name='page' value='controler_valid'/>
+				<tr>					
 					<td><input type='submit' value='Etape suivante'/></td>
 			</form>	
 
