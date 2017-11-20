@@ -6,23 +6,30 @@
 	
 	<body>
 		<h1>Reservation</h1>
-		<h2>Le prix de la place est de 10 euros jusqu'a 12 ans et
-		ensuite de 15 euros. <br/>
-		Le prix de l'assurance annulation est de 20 euros quel que
-		soit le nombre de voyageurs.</h2>
+		<h2>
+			Le prix de la place est de 10 euros jusqu'a 12 ans et
+			ensuite de 15 euros. <br/>
+			Le prix de l'assurance annulation est de 20 euros quel que
+			soit le nombre de voyageurs.
+		</h2>
 
 		<table>
 			<form method='post' action='index.php'>
-				<input type='hidden' name='page' value='controler_info'/>
+				<input type='hidden' name='page' value='controller_info'/>
 				<tr>
 					<td>Destination</td>
 					<td>
 						<select name='destination' size='1' selected='<?php if($destination != '') echo $destination;?>'>
 							<option></option>
+							
 							<option value='Londres' <?php if ($destination == 'Londres') echo 'selected="selected"';?>>Londres</option>
+
 							<option value='Bruxelles' <?php if ($destination == 'Bruxelles') echo 'selected="selected"';?>>Bruxelles</option>
+
 							<option value='Madrid' <?php if ($destination == 'Madrid') echo 'selected="selected"';?>>Madrid</option>
+
 							<option value='Paris' <?php if ($destination == 'Paris') echo 'selected="selected"';?>>Paris</option>
+
 							<option value='Amsterdam' <?php if ($destination == 'Amsterdam') echo 'selected="selected"';?>>Amsterdam</option>
 						</select>
 					</td>
@@ -53,8 +60,6 @@
 							<input type='submit' value='Annuler la réservation'/>				
 						</tf>
 					</form>
-				</tr>				
-		
-
+				</tr>		
 	</body>
 </html>

@@ -32,12 +32,12 @@
 	if ($alert == 'on')
 	{
 		$_SESSION['alertmajority'] = 'on';
-		include 'validation.php';
+		include './templates/validation.php';
 	}
 	else
 	{
 		$_SESSION['prix'] = $prix;
-		include 'confirmation.php';
+		include './templates/confirmation.php';
 	}
 
 ?>

@@ -4,12 +4,13 @@
 
 	var_dump($_POST);
 
-	if(!empty($_POST['page']) && is_file($_POST['page'].'.php'))
+	
+	if(!empty($_POST['page']) && is_file('./controllers/'.$_POST['page'].'.php'))
 	{
-		include $_POST['page'].'.php';	
+		include './controllers/'.$_POST['page'].'.php';	
 	}
 	else
 	{
-		include 'controller_reserv.php';
+		include './controllers/controller_reserv.php';
 	}
 ?>

@@ -18,41 +18,36 @@
 			$this->count = 0;
 		}
 
+		//Modify client list
 		public function modifylist($place, $list)
 		{
 			$this->cli[$place] = $list;
 		}
 
+		//reset the counter to 0
 		public function resetcount()
 		{
 			$this->count = 0;
 		}
 
+
+		/*================Setter================*/
+
+		//increments the counter by 1
 		public function setcount()
 		{
 			$this->count = $this->count + 1;
 		}
 
-		public function setlist($list)
-		{
-			$this->cli[] = $list;
-		}
-		
-		public function getlist()
-		{
-			return $this->cli;
-		}
-		
-		public function iterateur()
+		//unincrement the iterator of -1
+		public function setiterateur()
 		{
 			$this->iterateur = $this->iterateur - 1;
 		}
-
-		public function getiterateur()
+		public function setlist($list)
 		{
-			return $this->iterateur;
-		}
-		
+			$this->cli[] = $list;
+		}		
 		public function setdestination($destination)
 		{
 			$this->destination = $destination;
@@ -68,6 +63,16 @@
 		}
 
 
+		/*================getter================*/
+
+		public function getiterateur()
+		{
+			return $this->iterateur;
+		}
+		public function getlist()
+		{
+			return $this->cli;
+		}
 		public function getcount()
 		{
 			return $this->count;

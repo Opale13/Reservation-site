@@ -24,12 +24,12 @@
 	if(sizeof($client->getlist()) == $client->getnbrplace())
 	{
 		$_SESSION['client'] = serialize($client);
-		include 'controler_valid.php';
+		include './controllers/controller_valid.php';
 	}
 	else
 	{
 		$_SESSION['client'] = serialize($client);
-		include 'informations.php';
+		include './templates/informations.php';
 	}
 
 ?>

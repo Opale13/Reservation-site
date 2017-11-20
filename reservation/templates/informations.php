@@ -7,7 +7,7 @@
 
 		<table>	
 			<form method='post' action='index.php'>	
-				<input type='hidden' name='page' value='controler_valid'/>
+				<input type='hidden' name='page' value='controller_valid'/>
 				<input type='hidden' name='order' value='next'/>
 				<tr>
 					<td>Firstname</td>
@@ -36,14 +36,14 @@
 
 					<form method='post' action='index.php'>
 						<td>
-							<input type='hidden' name='page' value='controller_info'/>
+							<input type='hidden' name='page' value='controller_reserv'/>
 							<input type='submit' value='Page précédente'/>
 						</td>
 					</form>
 
 					<form method='post' action='index.php'>
 						<td>				
-							<input type='hidden' name='page' value='annulation'/>								
+							<input type='hidden' name='page' value='controller_annulation'/>								
 							<input type='submit' value='Annuler la réservation'/>				
 						</td>
 					</form>

@@ -31,7 +31,7 @@
 			$age = $listclient['age'];
 
 			$_SESSION['client'] = serialize($client);
-			include 'informations.php';
+			include './templates/informations.php';
 		}
 		//sinon on passe à la prochaine page
 		else
@@ -39,7 +39,7 @@
 			$client->resetcount();
 
 			$_SESSION['client'] = serialize($client);
-			include 'validation.php';
+			include './templates/validation.php';
 		}
 		
 	}
@@ -47,7 +47,7 @@
 	//Dans le cas où on on créé pour la premiere fois les passagers
 	elseif(sizeof($client->getlist()) <= $place)
 	{
-		$client->iterateur();
+		$client->setiterateur();
 
 		//Si on a pas encore traiter tout les passagers
 		if($client->getiterateur() > 0)
@@ -63,7 +63,7 @@
 			}
 
 			$_SESSION['client'] = serialize($client);			
-			include 'informations.php';
+			include './templates/informations.php';
 		}
 
 		//Dans le cas où on a traité tous les passagers
@@ -79,7 +79,7 @@
 			}
 			
 			$_SESSION['client'] = serialize($client);			
-			include 'validation.php';
+			include './templates/validation.php';
 		}
 	}
 

@@ -4,7 +4,7 @@
 			$client = unserialize($_SESSION['client']);
 			$destination = $client->getdestination();
 
-			include 'reserv.php';
+			include './templates/reserv.php';
 		}
 		else
 		{
@@ -13,7 +13,6 @@
 
 			$_SESSION['client'] = serialize($client);
 
-			include 'reserv.php';
-		}		
-
+			include './templates/reserv.php';
+		}	
 ?>

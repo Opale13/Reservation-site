@@ -93,14 +93,14 @@
 			<tr>
 				<td>
 					<form method='post' action='index.php'>
-						<input type='hidden' name='page' value='controler_confirmation'/>
+						<input type='hidden' name='page' value='controller_confirmation'/>
 						<input type='submit' value='confirmation'/>
 					</form>
 				</td>
 
 				<td>
 					<form method='post' action='index.php'>
-						<input type='hidden' name='page' value='controler_valid'/>
+						<input type='hidden' name='page' value='controller_valid'/>
 						<input type='submit' value='Retour'/>
 					</form>
 				</td>
