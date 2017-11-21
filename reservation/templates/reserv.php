@@ -1,6 +1,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
+		<link rel="stylesheet" href="./public/css/style.css" />
 		<title>Reservation</title>
 	</head>
 	
@@ -13,7 +14,7 @@
 			soit le nombre de voyageurs.
 		</h2>
 
-		<table>
+		<table id='table'>
 			<form method='post' action='index.php'>
 				<input type='hidden' name='page' value='controller_info'/>
 				<tr>
@@ -46,20 +47,21 @@
 					<td>Assurance annulation</td>
 					<td><input type='checkbox' name='assurance'/></td>
 				</tr>
+		</table>
 
+		<table id='foot'>
 				<tr>
 					<td><input type='submit' value='Etape suivante'/></td>	
+			</form>		
 
-			</form>
-		</table>	
-				
-			
 					<form method='post' action='index.php'>
 						<td>										
-							<input type='hidden' name='page' value='annulation'/>								
+							<input type='hidden' name='page' value='controller_annulation'/>								
 							<input type='submit' value='Annuler la réservation'/>				
-						</tf>
+						</td>
 					</form>
-				</tr>		
+				</tr>
+
+		</table>							
 	</body>
 </html>

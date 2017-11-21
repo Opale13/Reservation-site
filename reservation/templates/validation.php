@@ -1,6 +1,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
+		<link rel="stylesheet" href="./public/css/style.css" />
 		<title>Validation</title>
 	</head>
 
@@ -107,7 +108,8 @@
 
 				<td>
 					<form method='post' action='index.php'>
-						<input type='hidden' name='page' value='Annuler'/>
+						<input type='hidden' name='page' value='controller_annulation'/>
+						<input type='submit' value='Annuler'/>
 					</form>
 				</td>
 

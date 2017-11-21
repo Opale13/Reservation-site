@@ -3,7 +3,6 @@
 	require_once("client.php");
 
 	var_dump($_POST);
-
 	
 	if(!empty($_POST['page']) && is_file('./controllers/'.$_POST['page'].'.php'))
 	{
