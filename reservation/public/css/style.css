@@ -4,6 +4,15 @@ html, body{
     background-color: rgb(194, 205, 238);
 }
 
+.btn{
+    border-radius:12px 0 12px 0;
+	background: rgb(61, 61, 241);
+	border:none;
+	color:#fff;
+	font:bold 12px Verdana;
+	padding:6px 5px 6px 5px;    
+}
+
 h1{
     color: rgb(61, 61, 241);
     font-size: 50px;

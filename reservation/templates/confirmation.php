@@ -17,7 +17,7 @@
 
 		<form method='post' action='index.php'>
 			<input type='hidden' name='page' value='controller_annulation'/> 
-			<input type='submit' value="Retour page d'acceuil"/>
+			<input type='submit' class='btn' value="Retour page d'acceuil"/>
 		</form>
 
 	</body>

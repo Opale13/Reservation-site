@@ -51,13 +51,13 @@
 
 		<table id='foot'>
 				<tr>
-					<td><input type='submit' value='Etape suivante'/></td>	
+					<td><input type='submit' class='btn' value='Etape suivante'/></td>	
 			</form>		
 
 					<form method='post' action='index.php'>
 						<td>										
 							<input type='hidden' name='page' value='controller_annulation'/>								
-							<input type='submit' value='Annuler la réservation'/>				
+							<input type='submit' class='btn' value='Annuler la réservation'/>				
 						</td>
 					</form>
 				</tr>

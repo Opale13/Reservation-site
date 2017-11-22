@@ -27,6 +27,7 @@
 				$nbr_place = $client->getnbrplace();
 				settype($nbr_place,"string");
 
+				//display 'non' if assurance is not choice
 				if($client->getassurance() == "")
 				{
 					$assurance = "NON";
@@ -36,6 +37,7 @@
 					$assurance = "OUI";
 				}
 
+				//mise en forme de la destination et du nombre de place
 				echo '<tr>'.
 						'<td>Destination</td>'.
 						'<td>'.
@@ -52,6 +54,7 @@
 				     '<tr></tr>';
 				     '<tr></tr>';
 
+				//pour chaque client on affiche ses informations
 				foreach($client->getlist() as $information)
 				{
 					echo '<tr>'.
@@ -79,6 +82,7 @@
 				     	 '<tr></tr>';;
 				}
 
+				//afficher si une assurance a étée prise
 				echo '<tr>'.
 						'<td>Assurance</td>'.
 						'<td>'.
@@ -95,21 +99,21 @@
 				<td>
 					<form method='post' action='index.php'>
 						<input type='hidden' name='page' value='controller_confirmation'/>
-						<input type='submit' value='confirmation'/>
+						<input type='submit' class='btn' value='confirmation'/>
 					</form>
 				</td>
 
 				<td>
 					<form method='post' action='index.php'>
 						<input type='hidden' name='page' value='controller_valid'/>
-						<input type='submit' value='Retour'/>
+						<input type='submit' class='btn' value='Retour'/>
 					</form>
 				</td>
 
 				<td>
 					<form method='post' action='index.php'>
 						<input type='hidden' name='page' value='controller_annulation'/>
-						<input type='submit' value='Annuler'/>
+						<input type='submit' class='btn' value='Annuler'/>
 					</form>
 				</td>
 
