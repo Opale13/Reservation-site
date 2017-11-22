@@ -7,6 +7,11 @@
 	<body>
 
 		<?php
+			if ($warnning != '')
+			{
+				$error->runError($warnning);
+			}
+			
 			echo "<h1>Passager".
 				 $client_count.
 				 "</h1>"

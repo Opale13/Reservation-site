@@ -70,8 +70,8 @@
 				$client->setlist($list);
 			}
 
-			$client->setcount();
-			$client_count = $client->getcount();			
+			$client->setcount(); //count +1
+			$client_count = $client->getcount(); //recup du counter pour le titre 			
 
 			$_SESSION['client'] = serialize($client);			
 			include './templates/informations.php';

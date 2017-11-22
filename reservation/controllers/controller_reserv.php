@@ -9,9 +9,13 @@
 	else
 	{	
 		$client = new client();
+		$error = new error();
+		
 		$destination = $client->getdestination();
+		$warnning = '';
 
 		$_SESSION['client'] = serialize($client);
+		$_SESSION['error'] = serialize($error);
 
 		include './templates/reserv.php';
 	}	

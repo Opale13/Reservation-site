@@ -6,6 +6,14 @@
 	</head>
 	
 	<body>
+
+		<?php
+			if ($warnning != '')
+			{
+				$error->runError($warnning);
+			}
+		?>
+
 		<h1>Reservation</h1>
 		<h2>
 			Le prix de la place est de 10 euros jusqu'a 12 ans et

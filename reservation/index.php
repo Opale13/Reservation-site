@@ -1,6 +1,8 @@
 <?php
 	session_start();
+	
 	require_once("client.php");
+	require_once("error.php");
 
 	var_dump($_POST);
 	
