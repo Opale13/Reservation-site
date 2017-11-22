@@ -1,0 +1,33 @@
+html, body{
+    margin: O;
+    padding: 0;
+    background-color: rgb(194, 205, 238);
+}
+
+h1{
+    color: rgb(61, 61, 241);
+    font-size: 50px;
+    text-align: center;
+}
+
+h2{
+    font-size: 20px;
+    margin-left: 20px;
+}
+
+h3{
+    color: red;
+    font-size: 30px;
+    margin-left: 20px;
+}
+
+#table{
+    padding: 10px;
+    border: 1px solid;
+    margin-left: 35px;
+}
+
+#foot{
+    margin-top: 10px;
+    margin-left: 20px;
+}

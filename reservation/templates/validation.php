@@ -8,11 +8,11 @@
 	<body>
 
 		<?php 
-			if (isset($_SESSION['alertmajority']) && $_SESSION['alertmajority'] == 'ON')
+			if (isset($_SESSION['alertmajority']) && $_SESSION['alertmajority'] == 'on')
 			{
-				echo '<h2>'.
+				echo "<h3>".
 				 	 "Aucun majeur n'est présent".
-				 	 '</h2>';
+				 	 "</h3>";
 			}			
 		?>
 

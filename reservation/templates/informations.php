@@ -6,7 +6,13 @@
 	</head>
 	<body>
 
-		<table>	
+		<?php
+			echo "<h1>Passager".
+				 $client_count.
+				 "</h1>"
+		?>
+
+		<table id="table">	
 			<form method='post' action='index.php'>	
 				<input type='hidden' name='page' value='controller_valid'/>
 				<input type='hidden' name='order' value='next'/>
@@ -29,7 +35,10 @@
 					<td><input type='text' name='age' value ='<?php if(isset($age))
 					echo $age;?>'/></td>
 					<td></td>
-				</tr>		
+				</tr>
+		</table>
+
+		<table id="foot">		
 								
 				<tr>					
 					<td><input type='submit' value='Etape suivante'/></td>

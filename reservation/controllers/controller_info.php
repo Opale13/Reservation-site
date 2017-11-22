@@ -20,14 +20,20 @@
 		$client->setassurance($_POST['assurance']);
 	}
 
-	
-	if(sizeof($client->getlist()) == $client->getnbrplace())
+	//direction vers ctrlvalid pour modifier les valeurs déjà enregistrées
+	if(sizeof($client->getlist()) > 0)
 	{
+		$client->downcount();
 		$_SESSION['client'] = serialize($client);
 		include './controllers/controller_valid.php';
 	}
+
+	//dans le cas où on a pas encore encodé d'informations
 	else
 	{
+		$client->resetcount();		
+		$client_count = $client->getcount();
+
 		$_SESSION['client'] = serialize($client);
 		include './templates/informations.php';
 	}

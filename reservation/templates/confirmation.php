@@ -15,5 +15,10 @@
 			sur le compte 000-000000-00.
 		</p>
 
+		<form method='post' action='index.php'>
+			<input type='hidden' name='page' value='controller_annulation'/> 
+			<input type='submit' value="Retour page d'acceuil"/>
+		</form>
+
 	</body>
 </html>

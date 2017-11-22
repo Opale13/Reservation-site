@@ -15,7 +15,7 @@
 			$this->nbr_place = 0;
 			$this->iterateur = 1;
 			$this->cli = [];
-			$this->count = 0;
+			$this->count = 1;
 		}
 
 		//Modify client list
@@ -24,10 +24,15 @@
 			$this->cli[$place] = $list;
 		}
 
-		//reset the counter to 0
+		public function downcount()
+		{
+			$this->count = $this->count - 1;
+		}
+
+		//reset the counter to 1
 		public function resetcount()
 		{
-			$this->count = 0;
+			$this->count = 1;
 		}
 
 

@@ -5,30 +5,35 @@
 	$place = $client->getnbrplace();
 
 	//si on décide de modifier les valeurs des formulaires déjà encodées
-	if (sizeof($client->getlist()) == $place && $client->getcount() < $place)
+	if (sizeof($client->getlist()) == $place && $client->getcount() <= $place)
 	{
 		//Vérification qu'on appui sur le bouton suivant de la page informations
 		if (isset($_POST['order']) && $_POST['order'] == 'next')
 		{
-			$list = $client->getlist()[$client->getcount()];
+			$list = $client->getlist()[$client->getcount()-1];
 
 			$list['firstname'] = $_POST['firstname'];
 			$list['lastname'] = $_POST['lastname'];
 			$list['age'] = $_POST['age'];
 
-			$client->modifylist($client->getcount(), $list);
+			$client->modifylist($client->getcount()-1, $list);
 
 			$client->setcount();
 		}
 
 		//si on a pas encore tout checké
-		if ($client->getcount() <= $place - 1)
+		if ($client->getcount() <= $place)
 		{	
-			$listclient = $client->getlist()[$client->getcount()];	
+			$client_count = $client->getcount();
 
+			$listclient = $client->getlist()[$client_count-1];
+
+			//renvoie des valeurs dans le formulaire
 			$lastname = $listclient['lastname'];
 			$firstname = $listclient['firstname'];
 			$age = $listclient['age'];
+
+			$client_count = $client->getcount();			
 
 			$_SESSION['client'] = serialize($client);
 			include './templates/informations.php';
@@ -40,12 +45,11 @@
 
 			$_SESSION['client'] = serialize($client);
 			include './templates/validation.php';
-		}
-		
+		}		
 	}
 
-	//Dans le cas où on on créé pour la premiere fois les passagers
-	elseif(sizeof($client->getlist()) <= $place)
+	//Dans le cas où on encode pour la premiere fois les données
+	elseif(sizeof($client->getlist()) < $place+1)
 	{
 		$client->setiterateur();
 
@@ -62,6 +66,9 @@
 				$client->setlist($list);
 			}
 
+			$client->setcount();
+			$client_count = $client->getcount();			
+
 			$_SESSION['client'] = serialize($client);			
 			include './templates/informations.php';
 		}
@@ -77,6 +84,8 @@
 				$list['age'] = $_POST['age'];
 				$client->setlist($list);
 			}
+
+			$client->resetcount();
 			
 			$_SESSION['client'] = serialize($client);			
 			include './templates/validation.php';
