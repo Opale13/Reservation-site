@@ -13,7 +13,6 @@
 			$this->destination = "";
 			$this->assurance = "";
 			$this->nbr_place = 0;
-			$this->iterateur = 1;
 			$this->cli = [];
 			$this->count = 1;
 		}
@@ -43,12 +42,6 @@
 		{
 			$this->count = $this->count + 1;
 		}
-
-		//unincrement the iterator of -1
-		public function setiterateur()
-		{
-			$this->iterateur = $this->iterateur - 1;
-		}
 		public function setlist($list)
 		{
 			$this->cli[] = $list;
@@ -64,16 +57,11 @@
 		public function setnbrplace($nbre_place)
 		{
 			$this->nbr_place = $nbre_place;
-			$this->iterateur = $nbre_place;
 		}
 
 
 		/*================getter================*/
 
-		public function getiterateur()
-		{
-			return $this->iterateur;
-		}
 		public function getlist()
 		{
 			return $this->cli;

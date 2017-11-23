@@ -8,7 +8,7 @@
 	<body>
 
 		<?php
-			if ($warnning != '')
+			if (isset($warnning) && $warnning != '')
 			{
 				$error->runError($warnning);
 			}

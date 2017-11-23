@@ -26,15 +26,16 @@
 		//direction vers ctrlvalid pour modifier les valeurs déjà enregistrées
 		if(sizeof($client->getlist()) > 0)
 		{
-			$client->downcount();
+
+			$client->downcount(); //count -1
+			
 			$_SESSION['client'] = serialize($client);
 			include './controllers/controller_valid.php';
 		}
 
 		//dans le cas où on a pas encore encodé d'informations
 		else
-		{
-			$client->resetcount();		
+		{	
 			$client_count = $client->getcount();
 
 			$_SESSION['client'] = serialize($client);

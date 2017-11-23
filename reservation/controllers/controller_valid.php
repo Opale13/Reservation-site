@@ -8,24 +8,29 @@
 
 	$place = $client->getnbrplace();
 
-	//si on décide de modifier les valeurs des formulaires déjà encodées
+	/*==============================================*/
+	/*Gestion du bouton retour de la page Validation*/
+	/*==============================================*/
+
+	//Verification que tout les clients ont été enregistrés
 	if (sizeof($client->getlist()) == $place && $client->getcount() <= $place)
 	{
-		//Vérification qu'on appui sur le bouton suivant de la page informations
+		//Dans le cas où on appui sur le bouton suivant de la page informations
 		if (isset($_POST['order']) && $_POST['order'] == 'next')
 		{
 			$list = $client->getlist()[$client->getcount()-1];
 
+			//Sauvegarde des données à nouveau encodées
 			$list['firstname'] = $_POST['firstname'];
 			$list['lastname'] = $_POST['lastname'];
 			$list['age'] = $_POST['age'];
 
 			$client->modifylist($client->getcount()-1, $list);
 
-			$client->setcount();
+			$client->setcount(); //count +1
 		}
 
-		//si on a pas encore tout checké
+		//si on a pas encore regardé tous les clients
 		if ($client->getcount() <= $place)
 		{	
 			$client_count = $client->getcount();
@@ -37,12 +42,13 @@
 			$firstname = $listclient['firstname'];
 			$age = $listclient['age'];
 
-			$client_count = $client->getcount();			
+			$client_count = $client->getcount(); //recuperation du counter pour afficher le titre			
 
 			$_SESSION['client'] = serialize($client);
 			include './templates/informations.php';
 		}
-		//sinon on passe à la prochaine page
+
+		//si on a vérifié tous les clients
 		else
 		{
 			$client->resetcount();
@@ -53,15 +59,13 @@
 	}
 
 	//Dans le cas où on encode pour la premiere fois les données
-	elseif(sizeof($client->getlist()) < $place+1)
+	elseif (sizeof($client->getlist()) < $place+1)
 	{
-		$client->setiterateur();
-
 		//Si on a pas encore traiter tout les passagers
-		if($client->getiterateur() > 0)
+		if ($client->getcount() < $place)
 		{
 			//Verification que tout les champs on été rempli
-			if(isset($_POST['firstname']) && isset($_POST['lastname']) && isset($_POST['age']))
+			if (isset($_POST['firstname']) && isset($_POST['lastname']) && isset($_POST['age']))
 			{
 				$list = array();
 				$list['firstname'] = $_POST['firstname'];
@@ -78,7 +82,7 @@
 		}
 
 		//Dans le cas où on a traité tous les passagers
-		else if($client->getiterateur() == 0)
+		else if($client->getcount() == $place)
 		{
 			if(isset($_POST['firstname']) && isset($_POST['lastname']) && isset($_POST['age']))
 			{
