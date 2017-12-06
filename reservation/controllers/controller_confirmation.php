@@ -42,7 +42,7 @@
 	else
 	{
 		$_SESSION['prix'] = $prix;
-		include './templates/confirmation.php';
+		include './controllers/controller_db.php';
 	}
 
 ?>
