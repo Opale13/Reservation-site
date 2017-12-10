@@ -42,7 +42,7 @@
 	else
 	{
 		$_SESSION['prix'] = $prix;
-		include './controllers/controller_db.php';
+		include './controllers/controller_savedb.php';
 	}
 
 ?>
