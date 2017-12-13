@@ -6,6 +6,8 @@
     $dbname = "reservation";
 
     $display = "";
+    $save_ID = 0;
+    $save_line = array();
 
     // Create connection
     $conn = new mysqli($servername, $username, $password, $dbname);
@@ -25,27 +27,62 @@
     $result = $conn->query($sql);
     
     
+    //Affichage des champs
     $display = $display . "<table><tr>";
     while ($info=$result->fetch_field())
     {
         $display = $display . "<td>".$info->name."</td>";
     }
+    $display = $display . "<td>"."Modifier"."</td>";
     $display = $display . "</tr>";
     
+    //Affichage des données
     while ($line=$result->fetch_assoc())
     {
         $display = $display . "<tr>";
         
-        foreach ($line as $col_value)
+        //Si l'ID du vole actuel est différent du précedent
+        if ($line['ID'] != $save_ID)
         {
-            $display = $display . "<td>".$col_value."</td>";
+            $save_ID = $line['ID'];
+            $save_line[0] = $line;
+
+            foreach ($line as $col_value)
+            {
+                $display = $display . "<td>" . $col_value . "</td>";
+            }
+
+            $display = $display . "<td>";
+            $display = $display . "<form method='post' action='index.php'>";
+            $display = $display . "<input type='hidden' name='page' value='controller_displaydatabd'/>";
+            $display = $display . "<input type='hidden' name='VolID' value='".$line['ID']."'/>";
+            $display = $display . "<input type='submit' value='Modifier'/>";
+            $display = $display . "</form>";
+            $display = $display . "</td>";
+
+            $display = $display . "</tr>";
         }
-        $display = $display . "</tr>";
+        else 
+        {
+            foreach($line as $col_value)
+            {
+                if ($col_value != $line['Age'] && in_array($col_value, $save_line[0]))
+                {
+                    $display = $display . "<td>" . "</td>";
+                }
+                else
+                {
+                    $display = $display . "<td>" . $col_value . "</td>";
+                }
+            }            
+            $display = $display . "</tr>";            
+        }       
+        
     }
     $display = $display . "</table>";
 
     $conn->close();
 
-    include './templates/displaydb.php'
+    include './templates/displaydb.php';
 
 ?>

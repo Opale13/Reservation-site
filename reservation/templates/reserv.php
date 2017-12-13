@@ -40,6 +40,8 @@
 							<option value='Paris' <?php if ($destination == 'Paris') echo 'selected="selected"';?>>Paris</option>
 
 							<option value='Amsterdam' <?php if ($destination == 'Amsterdam') echo 'selected="selected"';?>>Amsterdam</option>
+
+							<option value='Venise' <?php if ($destination == 'Venise') echo 'selected="selected"';?>>Venise</option>
 						</select>
 					</td>
 				</tr>

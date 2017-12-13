@@ -54,7 +54,7 @@
         $age = $cl['age'];
 
         $sql = "INSERT INTO infos_clients (vols_id,Lastname, Firstname, Age)
-        VALUES ('" . $fly_id. "','" .  $lastname . "','". $firstname . "','". $age . "')";
+                VALUES ('" . $fly_id. "','" .  $lastname . "','". $firstname . "','". $age . "')";
 
         if ($conn->query($sql) === TRUE) {
             echo "New record created successfully";

@@ -27,7 +27,7 @@
 		if(sizeof($client->getlist()) > 0)
 		{
 
-			$client->downcount(); //count -1
+			$client->resetcount(); //count -1
 			
 			$_SESSION['client'] = serialize($client);
 			include './controllers/controller_valid.php';
@@ -42,7 +42,7 @@
 			include './templates/informations.php';
 		}
 	}
-
+	//erreur champ manquant
 	else
 	{
 		$warnning = "champ";	

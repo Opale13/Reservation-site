@@ -7,6 +7,7 @@
 		private $nbr_place;
 		private $iterateur;
 		private $count;
+		private $id_vol;
 		
 		public function __construct()
 		{
@@ -15,6 +16,7 @@
 			$this->nbr_place = 0;
 			$this->cli = [];
 			$this->count = 1;
+			$this->id_vol = -1;
 		}
 
 		//Modify client list
@@ -58,6 +60,10 @@
 		{
 			$this->nbr_place = $nbre_place;
 		}
+		public function setidvol($id)
+		{
+			$this->id_vol = $id;
+		}
 
 
 		/*================getter================*/
@@ -83,6 +89,10 @@
 			$place = $this->nbr_place;
 			settype($place,"integer");
 			return $place;
+		}
+		public function getidvol()
+		{
+			return $this->id_vol;
 		}
 	}
 
