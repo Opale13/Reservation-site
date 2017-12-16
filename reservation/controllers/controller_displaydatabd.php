@@ -18,10 +18,11 @@
     echo "Connected successfully";
 
     $sql = "SELECT infos_vols.ID, infos_vols.Destination, infos_vols.Places, infos_vols.Prix,
-                   infos_vols.Assurance, infos_clients.Lastname, infos_clients.Firstname, infos_clients.Age
+                   infos_vols.Assurance, infos_clients.ID, infos_clients.Lastname, infos_clients.Firstname, 
+                   infos_clients.Age
             FROM infos_vols
             INNER JOIN infos_clients 
-            WHERE infos_clients.vols_id = infos_vols.ID && infos_clients.vols_id =" . $vol_ID;
+            WHERE infos_clients.vols_id = infos_vols.ID && infos_clients.vols_id = $vol_ID";
 
     $result = $conn->query($sql);
 
@@ -31,12 +32,15 @@
         $client->setdestination($line['Destination']);
         $client->setnbrplace($line['Places']);
 
+        $cl['ID'] = $line['ID'];
         $cl['firstname'] = $line['Firstname'];
         $cl['lastname'] = $line['Lastname'];
         $cl['age'] = $line['Age'];
+        
         $client->setlist($cl);
 
         $client->setcount();
+        
         $client->setidvol($vol_ID);
     }
 

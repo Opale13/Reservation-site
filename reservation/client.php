@@ -16,6 +16,7 @@
 			$this->nbr_place = 0;
 			$this->cli = [];
 			$this->count = 1;
+
 			$this->id_vol = -1;
 		}
 
@@ -60,6 +61,7 @@
 		{
 			$this->nbr_place = $nbre_place;
 		}
+
 		public function setidvol($id)
 		{
 			$this->id_vol = $id;
@@ -90,6 +92,7 @@
 			settype($place,"integer");
 			return $place;
 		}
+
 		public function getidvol()
 		{
 			return $this->id_vol;
