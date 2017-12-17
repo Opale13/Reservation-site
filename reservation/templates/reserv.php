@@ -55,7 +55,9 @@
 				
 				<tr>
 					<td>Assurance annulation</td>
-					<td><input type='checkbox' name='assurance'/></td>
+					<td>
+						<input type='checkbox' name='assurance' <?php echo ($client->getassurance()=='' ? '' : 'checked="checked"'); ?>/>
+					</td>
 				</tr>
 		</table>
 

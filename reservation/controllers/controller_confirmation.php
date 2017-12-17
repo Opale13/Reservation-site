@@ -75,8 +75,19 @@
 		$destination = $client->getdestination();
 		$places = $client->getnbrplace();
 
+		if($client->getassurance() == '')
+		{
+			$assurance = "non";
+		}
+		else
+		{
+			$assurance = "oui";
+		}
+
 		$sql = "UPDATE infos_vols SET Destination='$destination',
-									  Places='$places'
+									  Places='$places',
+									  Prix='$prix',
+									  Assurance='$assurance'
 				WHERE ID = $ID";
 
 		$conn->query($sql);

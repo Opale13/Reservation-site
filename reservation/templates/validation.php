@@ -28,7 +28,7 @@
 				settype($nbr_place,"string");
 
 				//display 'non' if assurance is not choice
-				if($client->getassurance() == "")
+				if($client->getassurance() == '')
 				{
 					$assurance = "NON";
 				}

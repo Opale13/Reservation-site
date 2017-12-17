@@ -37,13 +37,22 @@
         $cl['lastname'] = $line['Lastname'];
         $cl['age'] = $line['Age'];
         
+        if ($line['Assurance'] == "non")
+		{
+            $client->setassurance("");       
+		}
+		else
+		{
+            $client->setassurance("on");
+		}
+
         $client->setlist($cl);
-
-        $client->setcount();
-        
         $client->setidvol($vol_ID);
-    }
 
+        $client->setcount();        
+        
+    }
+    
     $_SESSION['client'] = serialize($client);
 
     $conn->close();

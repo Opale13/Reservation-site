@@ -19,14 +19,17 @@
 	{
 		$client->setassurance($_POST['assurance']);
 	}
-
+	else
+	{
+		$client->setassurance('');
+	}
+	
 	//On fait la suite seulement si tous les champs sont remplit
 	if ($_POST['nbr_place'] != 0 && $_POST['destination'] != '')
 	{
 		//direction vers ctrlvalid pour modifier les valeurs déjà enregistrées
 		if(sizeof($client->getlist()) > 0)
 		{
-
 			$client->resetcount(); //count -1
 			
 			$_SESSION['client'] = serialize($client);
@@ -49,8 +52,7 @@
 		$destination = $client->getdestination();
 
 		$_SESSION['client'] = serialize($client);
-		$error = unserialize($_SESSION['error']);
-		
+		$error = unserialize($_SESSION['error']);		
 
 		include './templates/reserv.php';		
 	}
