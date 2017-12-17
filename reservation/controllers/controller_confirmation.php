@@ -1,7 +1,6 @@
 <?php
 
 	$client = unserialize($_SESSION['client']);
-	var_dump($client->getidvol());
 
 	$majority = 18;
 	$prix = 0;
@@ -111,6 +110,8 @@
 
 		$conn->close();
 
-		include './controllers/controller_annulation.php';
+		$message = "<p>Informations modifiées avec succès</p>";
+
+		include './templates/modifydb.php';
 	}
 ?>

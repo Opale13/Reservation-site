@@ -34,6 +34,7 @@
         $display = $display . "<td>".$info->name."</td>";
     }
     $display = $display . "<td>"."Modifier"."</td>";
+    $display = $display . "<td>"."Supprimer"."</td>";
     $display = $display . "</tr>";
     
     //Affichage des données
@@ -57,6 +58,14 @@
             $display = $display . "<input type='hidden' name='page' value='controller_displaydatabd'/>";
             $display = $display . "<input type='hidden' name='VolID' value='".$line['ID']."'/>";
             $display = $display . "<input type='submit' value='Modifier'/>";
+            $display = $display . "</form>";
+            $display = $display . "</td>";
+
+            $display = $display . "<td>";
+            $display = $display . "<form method='post' action='index.php'>";
+            $display = $display . "<input type='hidden' name='page' value='controller_suppdatadb'/>";
+            $display = $display . "<input type='hidden' name='VolID' value='".$line['ID']."'/>";
+            $display = $display . "<input type='submit' value='Supprimer'/>";
             $display = $display . "</form>";
             $display = $display . "</td>";
 
