@@ -4,7 +4,7 @@
 	$client = unserialize($_SESSION['client']);
 	$client->resetcount();
 
-	if(isset($_POST['nbr_place']) && $_POST['nbr_place'] == $client->getnbrplace())
+	if(isset($_POST['nbr_place']) && $_POST['nbr_place'] >= $client->getnbrplace())
 	{
 		$place = $_POST['nbr_place'];
 		settype($_POST['nbr_place'],"integer");
@@ -27,7 +27,7 @@
 	}
 	
 	//On fait la suite seulement si tous les champs sont remplit
-	if ($_POST['nbr_place'] == $client->getnbrplace() && $_POST['destination'] != '')
+	if ($_POST['nbr_place'] >= $client->getnbrplace() && $_POST['destination'] != '')
 	{
 		//direction vers ctrlvalid pour modifier les valeurs déjà enregistrées
 		if(sizeof($client->getlist()) >= $client->getnbrplace())

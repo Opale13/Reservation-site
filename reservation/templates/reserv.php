@@ -26,42 +26,49 @@
 		<table class='table table-responsive'>
 			<form method='post' action='index.php'>
 				<input type='hidden' name='page' value='controller_info'/>
-				<tr>
-					<td>Destination</td>
-					<td>
-						<select name='destination' size='1' selected='<?php if($destination != '') echo $destination;?>'>
-							<option></option>
-							
-							<option value='Londres' <?php if ($destination == 'Londres') echo 'selected="selected"';?>>Londres</option>
 
-							<option value='Bruxelles' <?php if ($destination == 'Bruxelles') echo 'selected="selected"';?>>Bruxelles</option>
+				<div class='form-group'>
+					<tr>					
+						<td>Destination</td>
+						<td>
+							<select class="form-control" name='destination' size='1' selected='<?php if($destination != '') echo $destination;?>'>
+								<option></option>
+								
+								<option value='Londres' <?php if ($destination == 'Londres') echo 'selected="selected"';?>>Londres</option>
 
-							<option value='Madrid' <?php if ($destination == 'Madrid') echo 'selected="selected"';?>>Madrid</option>
+								<option value='Bruxelles' <?php if ($destination == 'Bruxelles') echo 'selected="selected"';?>>Bruxelles</option>
 
-							<option value='Paris' <?php if ($destination == 'Paris') echo 'selected="selected"';?>>Paris</option>
+								<option value='Madrid' <?php if ($destination == 'Madrid') echo 'selected="selected"';?>>Madrid</option>
 
-							<option value='Amsterdam' <?php if ($destination == 'Amsterdam') echo 'selected="selected"';?>>Amsterdam</option>
+								<option value='Paris' <?php if ($destination == 'Paris') echo 'selected="selected"';?>>Paris</option>
 
-							<option value='Venise' <?php if ($destination == 'Venise') echo 'selected="selected"';?>>Venise</option>
+								<option value='Amsterdam' <?php if ($destination == 'Amsterdam') echo 'selected="selected"';?>>Amsterdam</option>
 
-							<option value='Tokyo' <?php if ($destination == 'Tokyo') echo 'selected="selected"';?>>Tokyo</option>
-						</select>
-					</td>
-				</tr>
+								<option value='Venise' <?php if ($destination == 'Venise') echo 'selected="selected"';?>>Venise</option>
+
+								<option value='Tokyo' <?php if ($destination == 'Tokyo') echo 'selected="selected"';?>>Tokyo</option>
+							</select>
+						</td>
+					</tr>
+				</div>
 				
-				<tr>
-					<td>Nombres de places</td>
-					<td>
-						<input type='text' name='nbr_place' value='<?php if($client->getnbrplace() != 0) echo $client->getnbrplace();?>'/>
-					</td>
-				</tr>
+				<div class="form-group">
+					<tr>
+						<td>Nombres de places</td>
+						<td>
+							<input class="form-control" type='text' name='nbr_place' value='<?php if($client->getnbrplace() != 0) echo $client->getnbrplace();?>'/>
+						</td>
+					</tr>
+				</div>
 				
-				<tr>
-					<td>Assurance annulation</td>
-					<td>
-						<input type='checkbox' name='assurance' <?php echo ($client->getassurance()=='' ? '' : 'checked="checked"'); ?>/>
-					</td>
-				</tr>
+				<div class="form-check disabled">
+					<tr>
+						<td>Assurance annulation</td>
+						<td>
+							<input class="form-check-input" type='checkbox' name='assurance' <?php echo ($client->getassurance()=='' ? '' : 'checked="checked"'); ?>/>
+						</td>
+					</tr>
+				</div>
 		</table>
 
 		<table id='foot'>
