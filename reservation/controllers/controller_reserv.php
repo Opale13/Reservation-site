@@ -5,7 +5,7 @@
 	if(isset($_SESSION['client']))
 	{
 		$client = unserialize($_SESSION['client']);
-
+		
 		$destination = $client->getdestination();
 
 		include './templates/reserv.php';

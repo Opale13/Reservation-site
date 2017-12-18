@@ -2,8 +2,9 @@
 	/*Controller that processes information from the "reserv.php" view*/
 
 	$client = unserialize($_SESSION['client']);
+	$client->resetcount();
 
-	if(isset($_POST['nbr_place']) && $_POST['nbr_place'] != 0)
+	if(isset($_POST['nbr_place']) && $_POST['nbr_place'] >= $client->getnbrplace())
 	{
 		$place = $_POST['nbr_place'];
 		settype($_POST['nbr_place'],"integer");
@@ -26,13 +27,11 @@
 	}
 	
 	//On fait la suite seulement si tous les champs sont remplit
-	if ($_POST['nbr_place'] != 0 && $_POST['destination'] != '')
+	if ($_POST['nbr_place'] >= $client->getnbrplace() && $_POST['destination'] != '')
 	{
 		//direction vers ctrlvalid pour modifier les valeurs déjà enregistrées
-		if(sizeof($client->getlist()) > 0)
-		{
-			$client->resetcount(); //count -1
-			
+		if(sizeof($client->getlist()) >= $client->getnbrplace())
+		{			
 			$_SESSION['client'] = serialize($client);
 			include './controllers/controller_valid.php';
 		}
@@ -41,7 +40,6 @@
 		else
 		{	
 			$client_count = $client->getcount();
-
 			$_SESSION['client'] = serialize($client);
 			include './templates/informations.php';
 		}
@@ -49,11 +47,22 @@
 	//erreur champ manquant
 	else
 	{
-		$warnning = "champ";	
-		$destination = $client->getdestination();
+		if ($_POST['nbr_place'] >= $client->getnbrplace())
+		{
+			$warnning = "champ";	
+			$destination = $client->getdestination();
 
-		$_SESSION['client'] = serialize($client);
-		$error = unserialize($_SESSION['error']);		
+			$_SESSION['client'] = serialize($client);
+			$error = unserialize($_SESSION['error']);	
+		}
+		else
+		{
+			$warnning = "place";	
+			$destination = $client->getdestination();
+
+			$_SESSION['client'] = serialize($client);
+			$error = unserialize($_SESSION['error']);
+		}
 
 		include './templates/reserv.php';		
 	}

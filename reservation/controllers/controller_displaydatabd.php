@@ -17,7 +17,7 @@
     } 
     echo "Connected successfully";
 
-    $sql = "SELECT infos_vols.ID, infos_vols.Destination, infos_vols.Places, infos_vols.Prix,
+    $sql = "SELECT infos_vols.Destination, infos_vols.Places, infos_vols.Prix,
                    infos_vols.Assurance, infos_clients.ID, infos_clients.Lastname, infos_clients.Firstname, 
                    infos_clients.Age
             FROM infos_vols
@@ -25,7 +25,7 @@
             WHERE infos_clients.vols_id = infos_vols.ID && infos_clients.vols_id = $vol_ID";
 
     $result = $conn->query($sql);
-
+    
     //creation d'un nouvelle objet client pour les modifs
     while ($line=$result->fetch_assoc())
     {
@@ -47,9 +47,7 @@
 		}
 
         $client->setlist($cl);
-        $client->setidvol($vol_ID);
-
-        $client->setcount();        
+        $client->setidvol($vol_ID);  
         
     }
     

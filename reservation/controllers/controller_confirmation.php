@@ -95,17 +95,32 @@
 		//Modification dans le tableau contenant les infos client		
 		foreach ($client->getlist() as $information)
 		{
-			$id_client = $information['ID'];
-			$lastname = $information['lastname'];
-			$firstname = $information['firstname'];
-			$age = $information['age'];
+			if (isset($information['ID']))
+			{
+				$id_client = $information['ID'];
+				$lastname = $information['lastname'];
+				$firstname = $information['firstname'];
+				$age = $information['age'];
 
-			$sql = "UPDATE infos_clients SET Lastname='$lastname',
-											 Firstname='$firstname',
-											 Age='$age'
-					WHERE ID = $id_client";
-				
-			$conn->query($sql);	
+				$sql = "UPDATE infos_clients SET Lastname='$lastname',
+												Firstname='$firstname',
+												Age='$age'
+						WHERE ID = $id_client";
+					
+				$conn->query($sql);	
+			}
+			else
+			{
+				$fly_id = $client->getidvol();
+				$lastname = $information['lastname'];
+				$firstname = $information['firstname'];
+				$age = $information['age'];				
+
+				$sql = $sql = "INSERT INTO infos_clients (vols_id,Lastname, Firstname, Age)
+                VALUES ('" . $fly_id. "','" .  $lastname . "','". $firstname . "','". $age . "')";
+					
+				$conn->query($sql);
+			}
 		}
 
 		$conn->close();

@@ -28,19 +28,19 @@
     
     
     //Affichage des champs
-    $display = $display . "<table><tr>";
+    $display .= "</br><table class='table table-responsive'><tr>";
     while ($info=$result->fetch_field())
     {
-        $display = $display . "<td>".$info->name."</td>";
+        $display .= "<td>".$info->name."</td>";
     }
-    $display = $display . "<td>"."Modifier"."</td>";
-    $display = $display . "<td>"."Supprimer"."</td>";
-    $display = $display . "</tr>";
+    $display .=  "<td>"."Modifier"."</td>";
+    $display .=  "<td>"."Supprimer"."</td>";
+    $display .=  "</tr>";
     
     //Affichage des données
     while ($line=$result->fetch_assoc())
     {
-        $display = $display . "<tr>";
+        $display .= "<tr>";
         
         //Si l'ID du vole actuel est différent du précedent
         if ($line['ID'] != $save_ID)
@@ -50,26 +50,26 @@
 
             foreach ($line as $col_value)
             {
-                $display = $display . "<td>" . $col_value . "</td>";
+                $display .= "<td>" . $col_value . "</td>";
             }
 
-            $display = $display . "<td>";
-            $display = $display . "<form method='post' action='index.php'>";
-            $display = $display . "<input type='hidden' name='page' value='controller_displaydatabd'/>";
-            $display = $display . "<input type='hidden' name='VolID' value='".$line['ID']."'/>";
-            $display = $display . "<input type='submit' value='Modifier'/>";
-            $display = $display . "</form>";
-            $display = $display . "</td>";
+            $display .= "<td>";
+            $display .= "<form method='post' action='index.php'>";
+            $display .= "<input type='hidden' name='page' value='controller_displaydatabd'/>";
+            $display .= "<input type='hidden' name='VolID' value='".$line['ID']."'/>";
+            $display .= "<input type='submit' class='btn btn-primary  btn-sm' value='Modifier'/>";
+            $display .= "</form>";
+            $display .= "</td>";
 
-            $display = $display . "<td>";
-            $display = $display . "<form method='post' action='index.php'>";
-            $display = $display . "<input type='hidden' name='page' value='controller_suppdatadb'/>";
-            $display = $display . "<input type='hidden' name='VolID' value='".$line['ID']."'/>";
-            $display = $display . "<input type='submit' value='Supprimer'/>";
-            $display = $display . "</form>";
-            $display = $display . "</td>";
+            $display .= "<td>";
+            $display .= "<form method='post' action='index.php'>";
+            $display .= "<input type='hidden' name='page' value='controller_suppdatadb'/>";
+            $display .= "<input type='hidden' name='VolID' value='".$line['ID']."'/>";
+            $display .= "<input type='submit' class='btn btn-primary  btn-sm' value='Supprimer'/>";
+            $display .= "</form>";
+            $display .= "</td>";
 
-            $display = $display . "</tr>";
+            $display .= "</tr>";
         }
         else 
         {
@@ -77,18 +77,18 @@
             {
                 if ($col_value != $line['Age'] && in_array($col_value, $save_line[0]))
                 {
-                    $display = $display . "<td>" . "</td>";
+                    $display .= "<td>" . "</td>";
                 }
                 else
                 {
-                    $display = $display . "<td>" . $col_value . "</td>";
+                    $display .= "<td>" . $col_value . "</td>";
                 }
             }            
-            $display = $display . "</tr>";            
+            $display .= "</tr>";            
         }       
         
     }
-    $display = $display . "</table>";
+    $display .= "</table>";
 
     $conn->close();
 

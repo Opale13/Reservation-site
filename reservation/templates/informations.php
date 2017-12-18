@@ -1,6 +1,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">	
 		<link rel="stylesheet" href="./public/css/style.css" />
 		<title>Informations</title>
 	</head>
@@ -17,7 +18,7 @@
 				 "</h1>"
 		?>
 
-		<table id="table">	
+			<table class='table table-responsive'>	
 			<form method='post' action='index.php'>	
 				<input type='hidden' name='page' value='controller_valid'/>
 				<input type='hidden' name='order' value='next'/>
@@ -46,20 +47,20 @@
 		<table id="foot">		
 								
 				<tr>					
-					<td><input type='submit' class='btn' value='Etape suivante'/></td>
+					<td><input type='submit' class="btn btn-secondary btn-sm" value='Etape suivante'/></td>
 			</form>	
 
 					<form method='post' action='index.php'>
 						<td>
 							<input type='hidden' name='page' value='controller_reserv'/>
-							<input type='submit' class='btn'value='Page précédente'/>
+							<input type='submit' class="btn btn-secondary btn-sm" value='Page précédente'/>
 						</td>
 					</form>
 
 					<form method='post' action='index.php'>
 						<td>				
 							<input type='hidden' name='page' value='controller_annulation'/>								
-							<input type='submit' class='btn' value='Annuler la réservation'/>				
+							<input type='submit' class="btn btn-secondary btn-sm" value='Annuler la réservation'/>				
 						</td>
 					</form>
 				</tr>	

@@ -1,16 +1,7 @@
 html, body{
     margin: O;
     padding: 0;
-    background-color: rgb(194, 205, 238);
-}
-
-.btn{
-    border-radius:12px 0 12px 0;
-	background: rgb(61, 61, 241);
-	border:none;
-	color:#fff;
-	font:bold 12px Verdana;
-	padding:6px 5px 6px 5px;    
+    background-color: rgb(92, 180, 217);
 }
 
 h1{
@@ -28,12 +19,6 @@ h3{
     color: red;
     font-size: 30px;
     margin-left: 20px;
-}
-
-#table{
-    padding: 10px;
-    border: 1px solid;
-    margin-left: 35px;
 }
 
 #foot{

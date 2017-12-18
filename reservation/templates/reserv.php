@@ -1,7 +1,8 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<link rel="stylesheet" href="./public/css/style.css" />		
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">	
+		<link rel="stylesheet" href="./public/css/style.css" />
 		<title>Reservation</title>
 	</head>
 	
@@ -22,7 +23,7 @@
 			soit le nombre de voyageurs.
 		</h2>
 
-		<table>
+		<table class='table table-responsive'>
 			<form method='post' action='index.php'>
 				<input type='hidden' name='page' value='controller_info'/>
 				<tr>
@@ -42,6 +43,8 @@
 							<option value='Amsterdam' <?php if ($destination == 'Amsterdam') echo 'selected="selected"';?>>Amsterdam</option>
 
 							<option value='Venise' <?php if ($destination == 'Venise') echo 'selected="selected"';?>>Venise</option>
+
+							<option value='Tokyo' <?php if ($destination == 'Tokyo') echo 'selected="selected"';?>>Tokyo</option>
 						</select>
 					</td>
 				</tr>
@@ -63,20 +66,20 @@
 
 		<table id='foot'>
 				<tr>
-					<td><input type='submit' class='btn' value='Etape suivante'/></td>	
+					<td><input type='submit' class="btn btn-secondary btn-sm" value='Etape suivante'/></td>	
 			</form>		
 
 					<form method='post' action='index.php'>
 						<td>										
 							<input type='hidden' name='page' value='controller_annulation'/>								
-							<input type='submit' class='btn' value='Annuler la réservation'/>				
+							<input type='submit' class="btn btn-secondary btn-sm" value='Annuler la réservation'/>				
 						</td>
 					</form>
 
 					<form method='post' action='index.php'>
 						<td>										
 							<input type='hidden' name='page' value='controller_displaydb'/>								
-							<input type='submit' class='btn' value='Display DB'/>				
+							<input type='submit' class="btn btn-secondary btn-sm" value='Display DB'/>				
 						</td>
 					</form>
 				</tr>

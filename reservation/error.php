@@ -16,6 +16,11 @@
                 {
                     echo "<h3>Aucun majeur n'est présent</h3>";
                 }
+                
+                elseif ($error == "place")
+                {
+                    echo "<h3>Le nouveau nombre de place doit être plus grand que l'ancien</h3>";
+                }
             }
         
     }

@@ -8,36 +8,30 @@
 	/*==============================================*/
 
 	//Verification que tout les clients ont été enregistrés
-	if (sizeof($client->getlist()) == $place && $client->getcount() <= $place)
+	if (sizeof($client->getlist()) == $place)
 	{
-		//Dans le cas où on appui sur le bouton suivant de la page informations
-		if (isset($_POST['order']) && $_POST['order'] == 'next')
-		{
-			$list = $client->getlist()[$client->getcount()-1];
-
-			//Sauvegarde des données à nouveau encodées
-			$list['firstname'] = $_POST['firstname'];
-			$list['lastname'] = $_POST['lastname'];
-			$list['age'] = $_POST['age'];
-
-			$client->modifylist($client->getcount()-1, $list);
-
-			$client->setcount(); //count +1
-		}
 
 		//si on a pas encore regardé tous les clients
 		if ($client->getcount() <= $place)
 		{	
 			$client_count = $client->getcount();
 
-			$listclient = $client->getlist()[$client_count-1];
+			if ($client_count>1)
+			{
+				$listclient = $client->getlist()[$client_count-1];
+			}
+			else 
+			{
+				$listclient = $client->getlist()[0];
+			}
 
 			//renvoie des valeurs dans le formulaire
 			$lastname = $listclient['lastname'];
 			$firstname = $listclient['firstname'];
 			$age = $listclient['age'];
 
-			$client_count = $client->getcount(); //recuperation du counter pour afficher le titre			
+			$client_count = $client->getcount(); //recuperation du counter pour afficher le titre
+			$client->setcount();			
 
 			$_SESSION['client'] = serialize($client);
 			include './templates/informations.php';
@@ -53,8 +47,11 @@
 		}		
 	}
 
-	//Dans le cas où on encode pour la premiere fois les données
-	elseif (sizeof($client->getlist()) < $place+1)
+	/*=================================================*/
+	/*Gestion du bouton suivant de la page Informations*/
+	/*=================================================*/
+
+	elseif (sizeof($client->getlist()) < $place)
 	{
 		//Si on a pas encore traiter tout les passagers
 		if ($client->getcount() < $place)

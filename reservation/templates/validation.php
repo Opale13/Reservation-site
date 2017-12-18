@@ -1,6 +1,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">	
 		<link rel="stylesheet" href="./public/css/style.css" />
 		<title>Validation</title>
 	</head>
@@ -18,7 +19,7 @@
 
 		<h1>Validation des reservations</h1>
 
-		<table>
+		<table class='table table-responsive'>
 
 			<?php
 			
@@ -99,21 +100,21 @@
 				<td>
 					<form method='post' action='index.php'>
 						<input type='hidden' name='page' value='controller_confirmation'/>
-						<input type='submit' class='btn' value='confirmation'/>
+						<input type='submit' class="btn btn-secondary btn-sm" value='confirmation'/>
 					</form>
 				</td>
 
 				<td>
 					<form method='post' action='index.php'>
 						<input type='hidden' name='page' value='controller_valid'/>
-						<input type='submit' class='btn' value='Retour'/>
+						<input type='submit' class="btn btn-secondary btn-sm" value='Retour' />
 					</form>
 				</td>
 
 				<td>
 					<form method='post' action='index.php'>
 						<input type='hidden' name='page' value='controller_annulation'/>
-						<input type='submit' class='btn' value='Annuler'/>
+						<input type='submit' class="btn btn-secondary btn-sm" value='Annuler'/>
 					</form>
 				</td>
 

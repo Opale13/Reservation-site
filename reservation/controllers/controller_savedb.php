@@ -34,12 +34,14 @@
     }
 
     $sql = "INSERT INTO infos_vols (Destination, Places, Prix, Assurance)
-    VALUES ('" . $destination . "','". $nbrplace . "','" . $prix . "','". $assurance . "')";
+            VALUES ('" . $destination . "','". $nbrplace . "','" . $prix . "','". $assurance . "')";
 
-    if ($conn->query($sql) === TRUE) {
+    if ($conn->query($sql) === TRUE) 
+    {
         $fly_id = $conn->insert_id;
-        echo "New record created successfully";
-    } else {
+    } 
+    else 
+    {
         echo "Error: " . $sql . "<br>" . $conn->error;
     }
 
@@ -56,9 +58,12 @@
         $sql = "INSERT INTO infos_clients (vols_id,Lastname, Firstname, Age)
                 VALUES ('" . $fly_id. "','" .  $lastname . "','". $firstname . "','". $age . "')";
 
-        if ($conn->query($sql) === TRUE) {
+        if ($conn->query($sql) === TRUE) 
+        {
             echo "New record created successfully";
-        } else {
+        } 
+        else 
+        {
             echo "Error: " . $sql . "<br>" . $conn->error;
         }
     }
