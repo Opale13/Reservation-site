@@ -19,7 +19,7 @@
                 
                 elseif ($error == "place")
                 {
-                    echo "<h3>Le nouveau nombre de place doit être plus grand que l'ancien</h3>";
+                    echo "<h3>Le nombre de place doit être égale à l'ancien.</h3>";
                 }
             }
         
