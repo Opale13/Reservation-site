@@ -1,4 +1,5 @@
 <?php
+	/*Controller that processes information from the "reserv.php" view*/
 
 	$client = unserialize($_SESSION['client']);
 

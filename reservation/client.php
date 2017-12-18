@@ -1,4 +1,5 @@
 <?php
+	/*Model for backing up customer data*/
 
 	class client
 	{
@@ -31,16 +32,18 @@
 			$this->count = $this->count - 1;
 		}
 
-		//reset the counter to 1
+		//Reset the counter to 1
 		public function resetcount()
 		{
 			$this->count = 1;
 		}
 
 
-		/*================Setter================*/
+		/*======================================*/
+		/*					Setter				*/
+		/*======================================*/
 
-		//increments the counter by 1
+		//Increments the counter by 1
 		public function setcount()
 		{
 			$this->count = $this->count + 1;
@@ -68,7 +71,9 @@
 		}
 
 
-		/*================getter================*/
+		/*======================================*/
+		/*					Getter				*/
+		/*======================================*/
 
 		public function getlist()
 		{

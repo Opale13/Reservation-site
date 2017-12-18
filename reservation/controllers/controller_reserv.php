@@ -1,4 +1,7 @@
 <?php
+	/*Initial controller*/
+
+	//In case a session already exists
 	if(isset($_SESSION['client']))
 	{
 		$client = unserialize($_SESSION['client']);
@@ -7,6 +10,7 @@
 
 		include './templates/reserv.php';
 	}
+	//We create a session if it does not exist
 	else
 	{	
 		$client = new client();
@@ -19,4 +23,5 @@
 
 		include './templates/reserv.php';
 	}	
+
 ?>
