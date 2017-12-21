@@ -26,17 +26,17 @@
 		$client->setassurance('');
 	}
 	
-	//On fait la suite seulement si tous les champs sont remplit
+	//It is done only if all the fields are filled
 	if ($_POST['nbr_place'] >= $client->getnbrplace() && $_POST['destination'] != '')
 	{
-		//direction vers ctrlvalid pour modifier les valeurs déjà enregistrées
+		//Direction to controller_valid to modify already saved values
 		if(sizeof($client->getlist()) >= $client->getnbrplace())
 		{			
 			$_SESSION['client'] = serialize($client);
 			include './controllers/controller_valid.php';
 		}
 
-		//dans le cas où on a pas encore encodé d'informations
+		//In case we have not yet encode information
 		else
 		{	
 			$client_count = $client->getcount();
@@ -44,7 +44,7 @@
 			include './templates/informations.php';
 		}
 	}
-	//erreur champ manquant
+	//Missing field error
 	else
 	{
 		if ($_POST['nbr_place'] != $client->getnbrplace())

@@ -12,14 +12,14 @@
     $conn = new mysqli($servername, $username, $password, $dbname);
     
     // Check connection
-    if ($conn->connect_error) {
+    if ($conn->connect_error) 
+    {
         die("Connection failed: " . $conn->connect_error);
-    } 
-    echo "Connected successfully";
+    }
 
-    /*=======================================*/
-    /*Rajout des donnés à la table infos_vols*/
-    /*=======================================*/
+    /*=================================*/
+    /*Add data to the flight info table*/
+    /*=================================*/
     $destination = $client->getdestination();
     $nbrplace = $client->getnbrplace();
     $prix = $_SESSION['prix'];
@@ -36,7 +36,7 @@
     $sql = "INSERT INTO infos_vols (Destination, Places, Prix, Assurance)
             VALUES ('" . $destination . "','". $nbrplace . "','" . $prix . "','". $assurance . "')";
 
-    if ($conn->query($sql) === TRUE) 
+    if ($conn->query($sql) == TRUE) 
     {
         $fly_id = $conn->insert_id;
     } 
@@ -46,9 +46,9 @@
     }
 
 
-    /*=========================================*/
-    /*Rajout des donnés à la table infos_client*/
-    /*=========================================*/    
+    /*==========================================*/
+    /*Addition of data to the table infos_client*/
+    /*==========================================*/    
     foreach ($clientList as $cl)
     {
         $lastname = $cl['lastname'];
@@ -58,11 +58,7 @@
         $sql = "INSERT INTO infos_clients (vols_id,Lastname, Firstname, Age)
                 VALUES ('" . $fly_id. "','" .  $lastname . "','". $firstname . "','". $age . "')";
 
-        if ($conn->query($sql) === TRUE) 
-        {
-            echo "New record created successfully";
-        } 
-        else 
+        if ($conn->query($sql) != TRUE) 
         {
             echo "Error: " . $sql . "<br>" . $conn->error;
         }

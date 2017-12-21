@@ -3,15 +3,15 @@
 
 	$place = $client->getnbrplace();
 
-	/*==============================================*/
-	/*Gestion du bouton retour de la page Validation*/
-	/*==============================================*/
+	/*======================================================*/
+	/*Management of the return button of the Validation page*/
+	/*======================================================*/
 
-	//Verification que tout les clients ont été enregistrés
+	//Verification that all customers have been registered
 	if (sizeof($client->getlist()) == $place)
 	{
 
-		//si on a pas encore regardé tous les clients
+		//If we have not looked at all the customers yet
 		if ($client->getcount() <= $place)
 		{	
 			$client_count = $client->getcount();
@@ -25,19 +25,19 @@
 				$listclient = $client->getlist()[0];
 			}
 
-			//renvoie des valeurs dans le formulaire
+			//Returns values in the form
 			$lastname = $listclient['lastname'];
 			$firstname = $listclient['firstname'];
 			$age = $listclient['age'];
 
-			$client_count = $client->getcount(); //recuperation du counter pour afficher le titre
+			$client_count = $client->getcount(); //Counter recovery to display in title
 			$client->setcount();			
 
 			$_SESSION['client'] = serialize($client);
 			include './templates/informations.php';
 		}
 
-		//si on a vérifié tous les clients
+		//If we checked all the clients
 		else
 		{
 			$client->resetcount();
@@ -47,49 +47,61 @@
 		}		
 	}
 
-	/*=================================================*/
-	/*Gestion du bouton suivant de la page Informations*/
-	/*=================================================*/
+	/*=====================================================*/
+	/*Management of the next button on the Information page*/
+	/*=====================================================*/
 
 	elseif (sizeof($client->getlist()) < $place)
 	{
-		//Si on a pas encore traiter tout les passagers
-		if ($client->getcount() < $place)
+		if ($_POST['lastname'] != "" && $_POST['firstname'] != "" && $_POST['age'] != "")
 		{
-			//Verification que tout les champs on été rempli
-			if (isset($_POST['firstname']) && isset($_POST['lastname']) && isset($_POST['age']))
+		//If we have not yet treated all passengers
+			if ($client->getcount() < $place)
 			{
-				$list = array();
-				$list['firstname'] = $_POST['firstname'];
-				$list['lastname'] = $_POST['lastname'];
-				$list['age'] = $_POST['age'];
-				$client->setlist($list);
+				//Verification that all fields have been filled
+				if (isset($_POST['firstname']) && isset($_POST['lastname']) && isset($_POST['age']))
+				{
+					$list = array();
+					$list['firstname'] = $_POST['firstname'];
+					$list['lastname'] = $_POST['lastname'];
+					$list['age'] = $_POST['age'];
+					$client->setlist($list);
+				}
+
+				$client->setcount(); //count +1
+				$client_count = $client->getcount(); //Counter recovery to display in title 			
+
+				$_SESSION['client'] = serialize($client);			
+				include './templates/informations.php';
 			}
 
-			$client->setcount(); //count +1
-			$client_count = $client->getcount(); //recup du counter pour le titre 			
+			//If we checked all the clients
+			else if($client->getcount() == $place)
+			{
+				if(isset($_POST['firstname']) && isset($_POST['lastname']) && isset($_POST['age']))
+				{
+					$list = array();
+					$list['firstname'] = $_POST['firstname'];
+					$list['lastname'] = $_POST['lastname'];
+					$list['age'] = $_POST['age'];
+					$client->setlist($list);
+				}
 
-			$_SESSION['client'] = serialize($client);			
+				$client->resetcount();
+				
+				$_SESSION['client'] = serialize($client);			
+				include './templates/validation.php';
+			}
+		}
+		else 
+		{
+			$warnning = "champ";
+			$client_count = $client->getcount();
+
+			$error = unserialize($_SESSION['error']);
 			include './templates/informations.php';
 		}
-
-		//Dans le cas où on a traité tous les passagers
-		else if($client->getcount() == $place)
-		{
-			if(isset($_POST['firstname']) && isset($_POST['lastname']) && isset($_POST['age']))
-			{
-				$list = array();
-				$list['firstname'] = $_POST['firstname'];
-				$list['lastname'] = $_POST['lastname'];
-				$list['age'] = $_POST['age'];
-				$client->setlist($list);
-			}
-
-			$client->resetcount();
-			
-			$_SESSION['client'] = serialize($client);			
-			include './templates/validation.php';
-		}
+	}
 	}
 
 ?>

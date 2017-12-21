@@ -8,7 +8,7 @@
 
 	<body>
 
-		<h1>Modification de la base de données</h1>
+		<h1>Modification de la base de donnees</h1>
 
         <?php echo $message; ?>
         

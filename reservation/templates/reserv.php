@@ -79,7 +79,7 @@
 					<form method='post' action='index.php'>
 						<td>										
 							<input type='hidden' name='page' value='controller_annulation'/>								
-							<input type='submit' class="btn btn-secondary btn-sm" value='Annuler la réservation'/>				
+							<input type='submit' class="btn btn-secondary btn-sm" value='Annuler la reservation'/>				
 						</td>
 					</form>
 

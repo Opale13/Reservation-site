@@ -8,7 +8,7 @@
 
 	foreach ($client->getlist() as $information) 
 	{
-		//test si au moins une personne majeur est présente
+		//Test if at least one adult is present
 		if ($information['age'] > $majority)
 		{
 			$alert = 'off';		
@@ -25,25 +25,25 @@
 		
 	}
 
-	//si une assurance à été pris, on la compte
+	//If insurance has been taken, it counts
 	if ($client->getassurance() != '')
 	{
 		$prix = $prix + 20;
 	}
 
-	/*==================================*/
-	/*Si la commande n'existe pas encore*/
-	/*==================================*/
+	/*===============================*/
+	/*If the order does not exist yet*/
+	/*===============================*/
 	if ($client->getidvol() == -1)
 	{
-		//renvoie vers la page précedente si aucun majeur n'est présent
+		//Return to the previous page if no major is present
 		if ($alert == 'on')
 		{
 			$_SESSION['alertmajority'] = 'on';
 			include './templates/validation.php';
 		}
 
-		//renvoie la page précédente si tout est bon
+		//Returns the next page if everything is good
 		else
 		{
 			$_SESSION['prix'] = $prix;
@@ -52,7 +52,7 @@
 	}
 
 	/*========================================*/
-	/*si la commande existe déjà on la modifie*/
+	/*If the command already exists, modify it*/
 	/*========================================*/
 	else
 	{
@@ -69,7 +69,7 @@
 		} 
 		echo "Connected successfully";
 
-		//Modification dans le tableau contenant les infos du vol
+		//Modification in the table containing flight information
 		$ID = $client->getidvol();
 		$destination = $client->getdestination();
 		$places = $client->getnbrplace();
@@ -92,7 +92,7 @@
 		$conn->query($sql);
 
 
-		//Modification dans le tableau contenant les infos client		
+		//Modification in the table containing the customer information		
 		foreach ($client->getlist() as $information)
 		{
 			if (isset($information['ID']))
@@ -125,7 +125,7 @@
 
 		$conn->close();
 
-		$message = "<p>Informations modifiées avec succès</p>";
+		$message = "<p>Informations modifiees avec succes</p>";
 
 		include './templates/modifydb.php';
 	}

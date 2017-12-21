@@ -12,7 +12,7 @@
 			if (isset($_SESSION['alertmajority']) && $_SESSION['alertmajority'] == 'on')
 			{
 				echo "<h3>".
-				 	 "Aucun majeur n'est présent".
+				 	 "Aucun majeur n'est present".
 				 	 "</h3>";
 			}			
 		?>
@@ -28,7 +28,7 @@
 				$nbr_place = $client->getnbrplace();
 				settype($nbr_place,"string");
 
-				//display 'non' if assurance is not choice
+				//Display 'non' if assurance is not choice
 				if($client->getassurance() == '')
 				{
 					$assurance = "NON";
@@ -38,7 +38,7 @@
 					$assurance = "OUI";
 				}
 
-				//mise en forme de la destination et du nombre de place
+				//Formatting destination and number of places
 				echo '<tr>'.
 						'<td>Destination</td>'.
 						'<td>'.
@@ -55,7 +55,7 @@
 				     '<tr></tr>';
 				     '<tr></tr>';
 
-				//pour chaque client on affiche ses informations
+				//For each customer, we show his informations
 				foreach($client->getlist() as $information)
 				{
 					echo '<tr>'.
@@ -83,7 +83,7 @@
 				     	 '<tr></tr>';;
 				}
 
-				//afficher si une assurance a étée prise
+				//View if insurance has been taken
 				echo '<tr>'.
 						'<td>Assurance</td>'.
 						'<td>'.
@@ -100,7 +100,7 @@
 				<td>
 					<form method='post' action='index.php'>
 						<input type='hidden' name='page' value='controller_confirmation'/>
-						<input type='submit' class="btn btn-secondary btn-sm" value='confirmation'/>
+						<input type='submit' class="btn btn-secondary btn-sm" value='Confirmation'/>
 					</form>
 				</td>
 
