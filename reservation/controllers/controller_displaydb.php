@@ -13,10 +13,10 @@
     $conn = new mysqli($servername, $username, $password, $dbname);
 
     // Check connection
-    if ($conn->connect_error) {
+    if ($conn->connect_error) 
+    {
         die("Connection failed: " . $conn->connect_error);
-    } 
-    echo "Connected successfully";
+    }
 
     $sql = "SELECT infos_vols.ID, infos_vols.Destination, infos_vols.Places, infos_vols.Prix,
                    infos_vols.Assurance, infos_clients.Lastname, infos_clients.Firstname, infos_clients.Age
@@ -27,9 +27,9 @@
     $result = $conn->query($sql);
     
     
-    //Affichage des champs
+    //Fields display
     $display .= "</br><table class='table table-responsive'><tr>";
-    while ($info=$result->fetch_field())
+    while ($info = $result->fetch_field())
     {
         $display .= "<td>".$info->name."</td>";
     }
@@ -37,12 +37,12 @@
     $display .=  "<td>"."Supprimer"."</td>";
     $display .=  "</tr>";
     
-    //Affichage des donnees
-    while ($line=$result->fetch_assoc())
+    //Display of data
+    while ($line = $result->fetch_assoc())
     {
         $display .= "<tr>";
         
-        //Si l'ID du vole actuel est different du precedent
+        //If the current flight ID is different from the previous one
         if ($line['ID'] != $save_ID)
         {
             $save_ID = $line['ID'];
@@ -74,11 +74,12 @@
         else 
         {
             foreach($line as $col_value)
-            {
+            {                
                 if ($col_value != $line['Age'] && in_array($col_value, $save_line[0]))
                 {
                     $display .= "<td>" . "</td>";
                 }
+                //We show that Lastname, firstname and age 
                 else
                 {
                     $display .= "<td>" . $col_value . "</td>";

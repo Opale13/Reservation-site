@@ -39,10 +39,6 @@
     if ($conn->query($sql) == TRUE) 
     {
         $fly_id = $conn->insert_id;
-    } 
-    else 
-    {
-        echo "Error: " . $sql . "<br>" . $conn->error;
     }
 
 

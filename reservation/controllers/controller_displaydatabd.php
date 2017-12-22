@@ -11,11 +11,10 @@
 
     $conn = new mysqli($servername, $username, $password, $dbname);
     
-    // Check connection
+    //Check connection
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
     } 
-    echo "Connected successfully";
 
     $sql = "SELECT infos_vols.Destination, infos_vols.Places, infos_vols.Prix,
                    infos_vols.Assurance, infos_clients.ID, infos_clients.Lastname, infos_clients.Firstname, 
@@ -26,8 +25,8 @@
 
     $result = $conn->query($sql);
     
-    //creation d un nouvelle objet client pour les modifs
-    while ($line=$result->fetch_assoc())
+    //Creating a new client object for modifs
+    while ($line = $result->fetch_assoc())
     {
         $client->setdestination($line['Destination']);
         $client->setnbrplace($line['Places']);

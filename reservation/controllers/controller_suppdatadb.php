@@ -11,16 +11,15 @@
     $conn = new mysqli($servername, $username, $password, $dbname);
 
     // Check connection
-    if ($conn->connect_error) {
+    if ($conn->connect_error) 
+    {
         die("Connection failed: " . $conn->connect_error);
-    } 
-    echo "Connected successfully";
-
-    $ID = $_POST['VolID'];
+    }
 
     $sql = "DELETE FROM infos_vols WHERE id=$ID";
 
     $conn->query($sql);
+
     $conn->close();
 
     $message = "<p>Informations supprimees avec succes</p>";
