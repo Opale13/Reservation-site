@@ -26,7 +26,7 @@
 
     $result = $conn->query($sql);
     
-    //creation d'un nouvelle objet client pour les modifs
+    //creation d un nouvelle objet client pour les modifs
     while ($line=$result->fetch_assoc())
     {
         $client->setdestination($line['Destination']);

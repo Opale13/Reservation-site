@@ -14,12 +14,12 @@
 
                 elseif ($error == "mineur")
                 {
-                    echo "<h3>Aucun majeur n'est présent</h3>";
+                    echo "<h3>Aucun majeur n'est present</h3>";
                 }
                 
                 elseif ($error == "place")
                 {
-                    echo "<h3>Le nombre de place doit être égale à l'ancien.</h3>";
+                    echo "<h3>Le nombre de place doit etre egale a l'ancien.</h3>";
                 }
             }
         

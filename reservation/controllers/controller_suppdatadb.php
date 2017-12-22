@@ -23,7 +23,7 @@
     $conn->query($sql);
     $conn->close();
 
-    $message = "<p>Informations supprimées avec succès</p>";
+    $message = "<p>Informations supprimees avec succes</p>";
     
     include './templates/modifydb.php';
 ?>

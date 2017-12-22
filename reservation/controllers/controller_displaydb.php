@@ -37,12 +37,12 @@
     $display .=  "<td>"."Supprimer"."</td>";
     $display .=  "</tr>";
     
-    //Affichage des données
+    //Affichage des donnees
     while ($line=$result->fetch_assoc())
     {
         $display .= "<tr>";
         
-        //Si l'ID du vole actuel est différent du précedent
+        //Si l'ID du vole actuel est different du precedent
         if ($line['ID'] != $save_ID)
         {
             $save_ID = $line['ID'];
